@@ -76,15 +76,3 @@ li input[type="checkbox"] {
         width: 100%;
     }
 }
-@media screen and (max-width: 600px) {
-    input[type="text"], input[type="datetime-local"], button {
-        width: 100%;
-        font-size: 12px;
-        padding: 8px;
-    }
-    
-    .action-buttons button {
-        font-size: 12px;
-        padding: 6px 8px; 
-    }
-}
