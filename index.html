@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div class="input-container">
+            <input type="text" id="task" placeholder="Add a new task...">
+            <button id="addBtn">Add</button>
+        </div>
+        <ul id="taskList">
+            <li>
+                <span>Go for a run in the morning</span>
+                <button class="delete">Delete</button>
+            </li>
+            <li>
+                <span>Buy Novel</span>
+                <button class="delete">Delete</button>
+            </li>
+            <li>
+                <span>Finish homework assignment</span>
+                <button class="delete">Delete</button>
+            </li>
+            <li>
+                <span>Buy Groceries</span>
+                <button class="delete">Delete</button>
+            </li>
+            <li>
+                <span>Watch a Movie</span>
+                <button class="delete">Delete</button>
+            </li>
+        </ul>
+
+        </ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const taskInput = document.getElementById("task");
+            const addBtn = document.getElementById("addBtn");
+            const taskList = document.getElementById("taskList");
+
+            addBtn.addEventListener("click", function() {
+                const taskText = taskInput.value.trim();
+                if (taskText !== "") {
+                    const taskItem = document.createElement("li");
+                    taskItem.innerHTML = `
+                <span>${taskText}</span>
+                <button class="delete">Delete</button>
+            `;
+                    taskList.appendChild(taskItem);
+                    taskInput.value = "";
+                }
+            });
+
+            taskList.addEventListener("click", function(e) {
+                if (e.target.classList.contains("delete")) {
+                    e.target.parentElement.remove();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
